@@ -14,10 +14,9 @@ public class InputParser {
             "/", new DivideAction());
 
     public InputParser() {
-        String[] romanSymbols = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
         for(int i = 1; i < 11; i++) {
             arabicNumbers.put(String.valueOf(i), i);
-            romanNumbers.put(romanSymbols[i - 1], i);
+            romanNumbers.put(NumberConverter.convertIntToRomanString(i), i);
         }
     }
 
@@ -38,9 +37,6 @@ public class InputParser {
 
     public boolean isRoman(String number) {
         return romanNumbers.containsKey(number);
-    }
-    public String getRomanSymbolOfNumber(int number) {
-        return romanNumbers.entrySet().stream().filter(x -> x.getValue() == number).findFirst().get().getKey();
     }
 
     public static HashMap<String, Integer> getRomanNumbers() {

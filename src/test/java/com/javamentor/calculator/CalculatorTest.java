@@ -10,12 +10,12 @@ class CalculatorTest {
 
     @Test
     void process_shouldReturnArabicSum_whenGivenTwoArabicNumbers() {
-        assertEquals(calculator.process("3 + 7"), "10");
+        assertEquals("10", calculator.process("3 + 7"));
     }
 
     @Test
     void process_shouldReturnRomanSum_whenGivenTwoRomanNumbers() {
-        assertEquals(calculator.process("III + VII"), "X");
+        assertEquals("X", calculator.process("III + VII"));
     }
 
     @Test
@@ -28,5 +28,14 @@ class CalculatorTest {
         assertThrows(IllegalArgumentException.class , () -> calculator.process("3 + 17"));
     }
 
+    @Test
+    void process_shouldReturnBigRomanNumber_whenMultiplyNines() {
+        assertEquals("LXXXI", calculator.process("IX * IX"));
+    }
+
+    @Test
+    void process_shouldReturnBigArabicNumber_whenMultiplyFives() {
+        assertEquals("25", calculator.process("5 * 5"));
+    }
 
 }

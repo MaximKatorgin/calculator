@@ -10,5 +10,7 @@ public class Main {
         String result = calculator.process(scanner.nextLine());
         System.out.println("Output:");
         System.out.println(result);
+
+
     }
 }
